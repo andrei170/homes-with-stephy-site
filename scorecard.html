@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homes with Stephy &middot; Website &amp; Positioning Scorecard</title>
+<meta name="theme-color" content="#1c0e16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<style>
+  :root{
+    --plum:#2a1622; --plum-deep:#1c0e16; --plum-elev:#3a2130;
+    --ink:#faf1ea; --mut:#cbaeb8; --dim:#8f6f7c;
+    --rose:#d76a82; --rose-bright:#ec8ca0; --peach:#f0c4a0;
+    --line:rgba(215,106,130,0.18); --line-bright:rgba(236,140,160,0.42);
+    --panel:rgba(58,33,48,0.42);
+    --gradF:#f85149; --gradD:#e8702a; --gradC:#d29922; --gradB:#3fb950; --gradA:#2ea043;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--plum-deep);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(ellipse 70% 50% at 22% 0%,rgba(215,106,130,0.1),transparent 55%),radial-gradient(ellipse 60% 50% at 85% 100%,rgba(240,196,160,0.06),transparent 55%)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+  a{color:inherit;text-decoration:none}
+  iconify-icon{display:inline-block;vertical-align:-0.125em}
+  .eyebrow{letter-spacing:.2em;text-transform:uppercase;font-size:11px;color:var(--rose);font-weight:600}
+
+  header{padding:46px 0 28px;border-bottom:1px solid var(--line);
+    background:radial-gradient(1200px 400px at 70% -10%,rgba(215,106,130,.16),transparent)}
+  h1{font-family:'Newsreader',serif;font-style:italic;font-size:34px;font-weight:600;margin:10px 0 8px;letter-spacing:-.01em;color:var(--ink)}
+  .who{color:var(--ink);font-size:16px;font-weight:600}
+  .sub{color:var(--mut);font-size:14.5px;margin-top:4px}
+
+  .hero{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:center;margin:34px 0 8px}
+  @media(max-width:760px){.hero{grid-template-columns:1fr}}
+  .gradecard{background:linear-gradient(160deg,var(--plum-elev),var(--plum-deep));border:1px solid var(--line-bright);
+    border-radius:18px;padding:26px;text-align:center;position:relative;overflow:hidden}
+  .gradecard:before{content:"";position:absolute;inset:0;
+    background:radial-gradient(300px 160px at 50% 0,rgba(232,112,42,.24),transparent)}
+  .bigletter{font-family:'Newsreader',serif;font-size:96px;font-weight:600;line-height:1;color:var(--gradD);position:relative;
+    text-shadow:0 0 40px rgba(232,112,42,.45)}
+  .score100{font-size:18px;color:var(--mut);margin-top:6px;position:relative}
+  .heroread h2{font-family:'Newsreader',serif;font-style:italic;font-size:24px;font-weight:600;margin-bottom:12px;color:var(--ink);line-height:1.2}
+  .heroread p{color:var(--mut);font-size:15.5px;font-weight:300;line-height:1.7}
+  .heroread .tag{display:inline-block;margin-top:16px;padding:7px 14px;border:1px solid var(--line-bright);
+    border-radius:999px;font-size:12.5px;color:var(--rose-bright);background:rgba(215,106,130,0.08)}
+
+  section{padding:34px 0;border-bottom:1px solid var(--line)}
+  .h{font-size:12px;color:var(--rose);text-transform:uppercase;letter-spacing:.16em;font-weight:700;margin-bottom:18px}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;
+    display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+  .rname{font-weight:600;font-size:15px;color:var(--ink)}
+  .bar{height:7px;background:rgba(12,6,10,0.55);border-radius:99px;margin-top:9px;overflow:hidden}
+  .fill{height:100%;border-radius:99px}
+  .badge{font-family:'Newsreader',serif;font-weight:600;font-size:16px;min-width:46px;height:46px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;color:#1c0e16}
+  .gF{background:var(--gradF)}.gD{background:var(--gradD)}.gC{background:var(--gradC)}
+  .gB{background:var(--gradB);color:#06210f}.gA{background:var(--gradA);color:#06210f}
+  .sc{font-size:12px;color:var(--mut);margin-top:3px}
+
+  .opp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:760px){.opp{grid-template-columns:1fr}}
+  .ocard{background:linear-gradient(160deg,var(--plum-elev),var(--plum-deep));border:1px solid var(--line-bright);border-radius:14px;padding:20px;text-align:center}
+  .ocard .lab{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+  .ocard .big{font-family:'Newsreader',serif;font-style:italic;font-size:32px;font-weight:600;color:var(--rose-bright);margin:8px 0 2px}
+  .ocard .small{font-size:13px;color:var(--mut)}
+  .oppnote{color:var(--mut);font-size:14px;margin-top:14px;font-weight:300;line-height:1.7}
+  .oppnote b{color:var(--ink);font-weight:600}
+
+  .arrow{display:flex;align-items:center;justify-content:center;gap:18px;margin:6px 0 2px;flex-wrap:wrap}
+  .pill{font-family:'Newsreader',serif;font-size:60px;font-weight:600;line-height:1}
+  .pill.from{color:var(--gradD)} .pill.to{color:var(--gradA)}
+  .pilllab{font-size:12px;color:var(--mut);text-align:center;text-transform:uppercase;letter-spacing:.1em;margin-top:6px}
+  .ar{font-size:34px;color:var(--rose)}
+
+  ul.road{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:760px){ul.road{grid-template-columns:1fr}}
+  ul.road li{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--rose);
+    border-radius:8px;padding:11px 14px;font-size:14.5px;color:var(--ink);font-weight:400}
+  .road2 li{border-left-color:var(--gradB)}
+
+  .cta{text-align:center;padding:40px 0 30px}
+  .cta h2{font-family:'Newsreader',serif;font-style:italic;font-size:26px;font-weight:600;margin-bottom:10px;color:var(--ink)}
+  .cta p{color:var(--mut);font-size:15px;font-weight:300;max-width:60ch;margin:0 auto}
+  .btn{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:15px 30px;background:var(--rose);color:var(--plum-deep);
+    border-radius:100px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:all .25s;
+    box-shadow:0 14px 34px rgba(215,106,130,.26)}
+  .btn:hover{background:var(--rose-bright);transform:translateY(-2px)}
+  footer{color:var(--dim);font-size:12.5px;text-align:center;padding:26px 0 44px}
+  footer a{color:var(--rose)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Website &amp; Positioning Scorecard</div>
+    <h1>Homes with Stephy</h1>
+    <div class="who">Stephy Salazar &middot; eXp Realty</div>
+    <div class="sub">Austin, TX &nbsp;&middot;&nbsp; Website, Discoverability, Conversion, Community &amp; Lead-Gen Readiness</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="gradecard">
+      <div class="eyebrow" style="position:relative;color:var(--rose-bright)">Overall Grade</div>
+      <div class="bigletter">D</div>
+      <div class="score100">42 / 100</div>
+    </div>
+    <div class="heroread">
+      <h2>You have the hardest thing to build - a community that trusts you - and none of the infrastructure.</h2>
+      <p>The warmth is real, and the niche is genuinely yours: bilingual, Latina, community-first, with Book Club Latinas as a signature no competitor can copy overnight. What is missing is everywhere to put it. There is no owned website (just a generic eXp listing feed that loaded the wrong region), and your best asset is scattered across a Linktree with nowhere to capture a lead. The grade is low today, but it is low for the most fixable reasons - and the upside is unusually high because you are early.</p>
+      <span class="tag">Real, ownable niche &nbsp;&middot;&nbsp; No owned asset to hold it</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="h">The Scorecard &mdash; 12 Categories</div>
+    <div class="grid">
+
+      <div class="row"><div><div class="rname">Owned Website</div><div class="bar"><div class="fill" style="width:12%;background:var(--gradF)"></div></div><div class="sc">Generic eXp IDX subdomain, wrong-region feed, no branding</div></div><div class="badge gF">F</div></div>
+
+      <div class="row"><div><div class="rname">Niche &amp; Positioning</div><div class="bar"><div class="fill" style="width:68%;background:var(--gradB)"></div></div><div class="sc">Bilingual, Latina, community-first - real and ownable, just buried</div></div><div class="badge gB">B-</div></div>
+
+      <div class="row"><div><div class="rname">Lead Capture</div><div class="bar"><div class="fill" style="width:14%;background:var(--gradF)"></div></div><div class="sc">Scattered Linktree, no owned page, zero email capture</div></div><div class="badge gF">F</div></div>
+
+      <div class="row"><div><div class="rname">Conversion Path &amp; Single CTA</div><div class="bar"><div class="fill" style="width:42%;background:var(--gradD)"></div></div><div class="sc">Two booking tools + WhatsApp = choice friction, no one clear step</div></div><div class="badge gD">D</div></div>
+
+      <div class="row"><div><div class="rname">Directory Presence</div><div class="bar"><div class="fill" style="width:16%;background:var(--gradF)"></div></div><div class="sc">No Zillow, realtor.com, or Google profile surfaced by name</div></div><div class="badge gF">F</div></div>
+
+      <div class="row"><div><div class="rname">SEO &amp; Discoverability</div><div class="bar"><div class="fill" style="width:15%;background:var(--gradF)"></div></div><div class="sc">Nothing owned to rank; invisible for local bilingual searches</div></div><div class="badge gF">F</div></div>
+
+      <div class="row"><div><div class="rname">Content &amp; Authority</div><div class="bar"><div class="fill" style="width:38%;background:var(--gradD)"></div></div><div class="sc">Warm IG presence, but no owned home for a guide, blog, or FAQ</div></div><div class="badge gD">D</div></div>
+
+      <div class="row"><div><div class="rname">Community Asset</div><div class="bar"><div class="fill" style="width:58%;background:var(--gradC)"></div></div><div class="sc">Book Club Latinas is real and rare - just under-leveraged</div></div><div class="badge gC">C+</div></div>
+
+      <div class="row"><div><div class="rname">Social Presence</div><div class="bar"><div class="fill" style="width:50%;background:var(--gradC)"></div></div><div class="sc">Instagram-dependent, unverified reach, nothing owned to fall back on</div></div><div class="badge gC">C-</div></div>
+
+      <div class="row"><div><div class="rname">Reviews &amp; Reputation</div><div class="bar"><div class="fill" style="width:15%;background:var(--gradF)"></div></div><div class="sc">No public review footprint found; nothing for a buyer to trust yet</div></div><div class="badge gF">F</div></div>
+
+      <div class="row"><div><div class="rname">Tracking &amp; Ads Readiness</div><div class="bar"><div class="fill" style="width:14%;background:var(--gradF)"></div></div><div class="sc">No owned site means no analytics, pixel, or way to measure a dollar</div></div><div class="badge gF">F</div></div>
+
+      <div class="row"><div><div class="rname">Brand Consistency</div><div class="bar"><div class="fill" style="width:40%;background:var(--gradD)"></div></div><div class="sc">Identity lives in fragments across links, not one branded home</div></div><div class="badge gD">D</div></div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="h">The Opportunity in Numbers</div>
+    <div class="opp">
+      <div class="ocard"><div class="lab">Conservative &middot; +1 close/mo</div><div class="big">~$144K</div><div class="small">gross buyer-side commission / year</div></div>
+      <div class="ocard"><div class="lab">Moderate &middot; +2 closes/mo</div><div class="big">~$288K</div><div class="small">gross buyer-side commission / year</div></div>
+      <div class="ocard"><div class="lab">Strong &middot; +3 closes/mo</div><div class="big">~$432K</div><div class="small">gross buyer-side commission / year</div></div>
+    </div>
+    <p class="oppnote">Estimates, not a guarantee. Based on the Austin metro median home price of roughly <b>$439K</b> and a buyer-side commission near <b>2.5-3% (about $12K per deal)</b>. Because you are early, the real story is not one big year - it is a <b>compounding asset</b>: an owned site, a growing email list, and a review footprint that keep working for you across your whole career, instead of leads leaking out of a Linktree that starts over every month.</p>
+  </section>
+
+  <section>
+    <div class="h">Projected Grade After Build</div>
+    <div class="arrow">
+      <div><div class="pill from">D</div><div class="pilllab">Today &middot; 42/100</div></div>
+      <div class="ar">&rarr;</div>
+      <div><div class="pill to">A-</div><div class="pilllab">After build &middot; 88-90/100</div></div>
+    </div>
+    <p class="oppnote" style="text-align:center">You own the asset instead of renting it, one warm funnel replaces the four-way scatter, one clear "say hola" CTA carries every visitor, the community feeds a real email list, a review engine builds the proof a newer agent needs, and tracking finally lets you see what works.</p>
+  </section>
+
+  <section>
+    <div class="h">Priority Roadmap &mdash; Fix First</div>
+    <ul class="road">
+      <li>Launch one owned, branded website that leads with the bilingual, community-first brand</li>
+      <li>Retire the four-way Linktree into one clear "say hola" path</li>
+      <li>Wire the free bilingual first-home guide with name + email capture</li>
+      <li>Basic on-page SEO for the local bilingual searches that matter</li>
+    </ul>
+    <div class="h" style="margin-top:24px">Build Next &mdash; Compounding Growth</div>
+    <ul class="road road2">
+      <li>Stand up Google Business Profile + Zillow / realtor.com, start a review engine</li>
+      <li>Short, warm bilingual welcome email sequence for new contacts</li>
+      <li>Connect Book Club Latinas so the community feeds the list, and the list feeds it back</li>
+      <li>Light content cadence + a simple monthly performance snapshot</li>
+    </ul>
+  </section>
+
+  <div class="cta">
+    <h2>The window is open now - because you are early.</h2>
+    <p>Build the owned asset before the scattered setup hardens into habit, and the community you already earned starts compounding into leads for the next decade.</p>
+    <a href="audit.html" class="btn"><iconify-icon icon="mdi:file-document-outline"></iconify-icon>Read the full in-depth audit</a>
+  </div>
+
+</div>
+
+<footer>Prepared by Andrei Givero &middot; AG1 Consulting &nbsp;|&nbsp; <a href="https://andrei170.github.io/ag1">andrei170.github.io/ag1</a></footer>
+</body>
+</html>
