@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website &amp; Positioning Audit &middot; Homes with Stephy</title>
+<meta name="description" content="Website and positioning audit for Homes with Stephy - Stephy Salazar, bilingual community-first Austin buyer's agent. Prepared by AG1 Consulting.">
+<meta name="theme-color" content="#1c0e16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --plum:#2a1622;
+  --plum-deep:#1c0e16;
+  --plum-elev:#3a2130;
+  --rose:#d76a82;
+  --rose-bright:#ec8ca0;
+  --rose-deep:#b04d64;
+  --peach:#f0c4a0;
+  --blush:#ecb8bf;
+  --sage:#a7c1a9;
+  --cream:#faf1ea;
+  --text:#faf1ea;
+  --text-muted:#cbaeb8;
+  --text-dim:#8f6f7c;
+  --border:rgba(215,106,130,0.18);
+  --border-bright:rgba(236,140,160,0.44);
+  --rose-soft:rgba(215,106,130,0.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--plum-deep);color:var(--text);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+iconify-icon{display:inline-block;vertical-align:-0.125em}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 22% 0%,rgba(215,106,130,0.09),transparent 55%),radial-gradient(ellipse 60% 50% at 85% 100%,rgba(240,196,160,0.05),transparent 55%);pointer-events:none;z-index:0}
+
+/* ===== DEMO RIBBON ===== */
+.demo-ribbon{background:var(--rose-soft);border-bottom:1px solid var(--border-bright);text-align:center;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose-bright);padding:8px 16px;position:relative;z-index:120}
+
+/* ===== TOP BAR ===== */
+.topbar{position:sticky;top:0;background:rgba(28,14,22,0.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,0.04);z-index:100}
+.topbar-inner{max-width:920px;margin:0 auto;padding:12px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.topbar .brand{font-family:'Newsreader',serif;font-weight:600;font-style:italic;font-size:20px;color:var(--cream);display:flex;align-items:baseline;gap:7px}
+.topbar .brand .em{color:var(--rose-bright)}
+.topbar .brand .sub{font-size:8px;color:var(--rose);letter-spacing:0.28em;font-weight:600;font-family:'Inter',sans-serif;text-transform:uppercase;font-style:normal}
+.topbar-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.topbar-links a{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);border:1px solid var(--border-bright);padding:8px 15px;border-radius:100px;transition:all 0.2s}
+.topbar-links a:hover{color:var(--rose-bright);background:var(--rose-soft)}
+.topbar-links a iconify-icon{font-size:14px;color:var(--rose)}
+@media(max-width:640px){.topbar .brand .sub{display:none}.topbar-links a span{display:none}.topbar-links a{padding:8px 11px}}
+
+/* ===== DOC WRAP ===== */
+.doc{position:relative;z-index:1;max-width:840px;margin:0 auto;padding:0 28px 100px}
+
+/* ===== COVER ===== */
+.cover{padding:88px 0 54px;border-bottom:1px solid var(--border);text-align:center;position:relative}
+.cover::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:120px;height:2px;background:var(--rose);opacity:0.85}
+.cover .eyebrow{display:inline-flex;align-items:center;gap:12px;padding:9px 18px;border:1px solid var(--border-bright);border-radius:100px;background:var(--rose-soft);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose-bright);margin-bottom:30px;font-weight:600}
+.cover .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--rose-bright);box-shadow:0 0 8px var(--rose-bright)}
+.cover h1{font-family:'Newsreader',serif;font-weight:500;font-style:italic;font-size:clamp(40px,6.4vw,68px);line-height:1.02;letter-spacing:-0.01em;color:var(--cream);margin-bottom:18px}
+.cover h1 em{color:var(--rose-bright);font-style:italic;font-weight:600}
+.cover .cover-sub{font-family:'Newsreader',serif;font-style:italic;font-size:clamp(19px,2.4vw,26px);color:var(--text-muted);margin-bottom:34px}
+.cover .cover-sub strong{color:var(--cream);font-weight:600}
+.cover-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 30px;font-size:12px;letter-spacing:0.06em;color:var(--text-dim);text-transform:uppercase}
+.cover-meta span{display:inline-flex;align-items:center;gap:8px}
+.cover-meta span iconify-icon{color:var(--rose);font-size:15px}
+.cover-meta strong{color:var(--text-muted);font-weight:600}
+
+/* ===== CONTENT ===== */
+.doc-body{padding-top:16px}
+.doc-body section{padding:44px 0;border-bottom:1px solid var(--border)}
+.doc-body section:last-child{border-bottom:0}
+.sec-num{font-family:'Newsreader',serif;font-style:italic;font-size:14px;color:var(--rose);font-weight:600;letter-spacing:0.08em;display:inline-flex;align-items:center;gap:12px;margin-bottom:14px}
+.sec-num::before{content:'';width:26px;height:1px;background:var(--rose)}
+h2.doc-h2{font-family:'Newsreader',serif;font-weight:500;font-style:italic;font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-0.01em;color:var(--cream);margin-bottom:22px}
+h2.doc-h2 em{color:var(--rose-bright)}
+h3.doc-h3{font-family:'Newsreader',serif;font-weight:600;font-style:italic;font-size:clamp(19px,2.4vw,24px);color:var(--cream);margin:30px 0 12px}
+.doc-body p{font-size:16px;color:var(--text-muted);line-height:1.78;margin-bottom:18px;font-weight:300}
+.doc-body p strong{color:var(--cream);font-weight:600}
+.doc-body p em{color:var(--blush);font-style:italic}
+.lead{font-size:17.5px;color:var(--text-muted);line-height:1.8}
+.lead strong{color:var(--cream);font-weight:500}
+
+/* lists */
+.doc-body ul.doc-list,.doc-body ol.doc-list{list-style:none;margin:6px 0 22px;display:grid;gap:13px}
+.doc-body ul.doc-list li,.doc-body ol.doc-list li{position:relative;padding-left:34px;font-size:16px;color:var(--text-muted);line-height:1.7;font-weight:300}
+.doc-body ul.doc-list li iconify-icon{position:absolute;left:0;top:4px;color:var(--rose);font-size:19px}
+.doc-body ol.doc-list{counter-reset:docol}
+.doc-body ol.doc-list li{counter-increment:docol}
+.doc-body ol.doc-list li::before{content:counter(docol);position:absolute;left:0;top:2px;width:24px;height:24px;border-radius:50%;background:var(--rose-soft);border:1px solid var(--border-bright);color:var(--rose-bright);font-family:'Newsreader',serif;font-style:italic;font-weight:600;font-size:13px;display:flex;align-items:center;justify-content:center}
+.doc-body li strong{color:var(--cream);font-weight:600}
+
+/* tables */
+.table-wrap{overflow-x:auto;margin:8px 0 24px;border:1px solid var(--border);border-radius:14px}
+table.doc-table{width:100%;border-collapse:collapse;min-width:520px}
+table.doc-table thead th{background:rgba(58,33,48,0.6);font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);font-weight:700;text-align:left;padding:15px 18px;border-bottom:1px solid var(--border-bright)}
+table.doc-table tbody td{padding:14px 18px;font-size:14.5px;color:var(--text-muted);border-bottom:1px solid var(--border);font-weight:300;vertical-align:top}
+table.doc-table tbody tr:last-child td{border-bottom:0}
+table.doc-table tbody tr:nth-child(even) td{background:rgba(58,33,48,0.24)}
+table.doc-table tbody td strong{color:var(--cream);font-weight:600}
+table.doc-table tbody td:first-child{color:var(--cream);font-weight:500}
+table.doc-table tr.total-row td{background:var(--rose-soft) !important;color:var(--rose-bright);font-weight:600}
+table.doc-table tr.total-row td strong{color:var(--rose-bright)}
+
+/* callout / blockquote */
+.callout{border-left:3px solid var(--rose);background:rgba(58,33,48,0.4);border-radius:0 12px 12px 0;padding:22px 26px;margin:8px 0 24px}
+.callout .callout-tag{display:inline-flex;align-items:center;gap:9px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose-bright);font-weight:700;margin-bottom:10px}
+.callout .callout-tag iconify-icon{font-size:16px}
+.callout p{font-size:15px;color:var(--text-muted);margin-bottom:0;line-height:1.75}
+.callout p strong{color:var(--cream)}
+
+/* flywheel line */
+.flywheel{background:linear-gradient(150deg,var(--plum-elev),var(--plum-deep));border:1px solid var(--border-bright);border-radius:14px;padding:26px 28px;margin:12px 0 22px}
+.flywheel .fw-tag{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:10px}
+.flywheel p{font-family:'Newsreader',serif;font-style:italic;font-size:clamp(17px,2.2vw,21px);color:var(--cream);line-height:1.5;margin-bottom:0}
+
+/* phase blocks */
+.phase{border:1px solid var(--border);border-radius:14px;padding:26px 28px;margin-bottom:18px;background:rgba(58,33,48,0.28)}
+.phase h3{font-family:'Newsreader',serif;font-style:italic;font-size:21px;color:var(--cream);font-weight:600;margin-bottom:4px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.phase h3 .wk{font-family:'Inter',sans-serif;font-style:normal;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);font-weight:700;border:1px solid var(--border-bright);border-radius:100px;padding:4px 11px}
+.phase ul.doc-list{margin-top:14px;margin-bottom:0}
+
+/* spec tiers */
+.tier{display:flex;gap:18px;align-items:flex-start;padding:20px 0;border-top:1px solid var(--border)}
+.tier:first-of-type{border-top:0}
+.tier .tier-ico{width:46px;height:46px;flex-shrink:0;border-radius:12px;background:var(--rose-soft);border:1px solid var(--border-bright);display:flex;align-items:center;justify-content:center}
+.tier .tier-ico iconify-icon{font-size:22px;color:var(--rose-bright)}
+.tier .tier-body h4{font-family:'Newsreader',serif;font-style:italic;font-size:19px;color:var(--cream);font-weight:600;margin-bottom:4px}
+.tier .tier-body p{font-size:15px;margin-bottom:0}
+
+/* invest tiers */
+.invest{display:grid;gap:16px;margin:8px 0 22px}
+.invest-card{border:1px solid var(--border);border-radius:14px;padding:24px 26px;background:linear-gradient(160deg,var(--plum-elev),var(--plum-deep));transition:border-color 0.3s}
+.invest-card.featured{border-color:var(--rose);box-shadow:0 0 0 1px var(--rose) inset}
+.invest-card .inv-tag{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:8px}
+.invest-card h4{font-family:'Newsreader',serif;font-style:italic;font-size:22px;color:var(--cream);font-weight:600;margin-bottom:8px}
+.invest-card p{font-size:15px;margin-bottom:0}
+
+/* next steps */
+.divider-motif{display:flex;align-items:center;justify-content:center;gap:14px;margin:40px auto 0}
+.divider-motif .line{width:44px;height:1px;background:linear-gradient(90deg,transparent,var(--rose))}
+.divider-motif .line.rev{background:linear-gradient(90deg,var(--rose),transparent)}
+.divider-motif iconify-icon{color:var(--rose);font-size:16px}
+
+/* closing cta */
+.doc-cta{text-align:center;padding:52px 28px 20px}
+.doc-cta a{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:var(--rose);color:var(--plum-deep);border-radius:100px;font-size:12px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;transition:all 0.3s;box-shadow:0 14px 34px rgba(215,106,130,0.28)}
+.doc-cta a:hover{background:var(--rose-bright);transform:translateY(-2px)}
+
+/* footer */
+.doc-foot{text-align:center;padding:30px 28px 0;font-size:12px;color:var(--text-dim);letter-spacing:0.04em}
+.doc-foot em{font-style:italic}
+</style>
+</head>
+<body>
+
+<div class="demo-ribbon">Concept audit prepared for Stephy Salazar &middot; not an official document</div>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand"><span class="em">Homes</span> with Stephy<span class="sub">Austin Realtor</span></a>
+    <div class="topbar-links">
+      <a href="index.html"><iconify-icon icon="mdi:web"></iconify-icon><span>Live demo site</span></a>
+      <a href="https://linktr.ee/homeswithstephy"><iconify-icon icon="mdi:link-variant"></iconify-icon><span>Hub</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="doc">
+
+  <!-- ===== COVER ===== -->
+  <header class="cover">
+    <div class="eyebrow"><span class="dot"></span>Confidential proposal</div>
+    <h1>Website &amp; <em>Positioning Audit</em></h1>
+    <p class="cover-sub">Homes with Stephy <strong>&middot; Stephy Salazar</strong></p>
+    <div class="cover-meta">
+      <span><iconify-icon icon="mdi:map-marker-outline"></iconify-icon>Austin, TX metro</span>
+      <span><iconify-icon icon="mdi:account-tie-outline"></iconify-icon>Prepared by <strong>AG1 Consulting</strong></span>
+      <span><iconify-icon icon="mdi:calendar-outline"></iconify-icon><strong>July 2, 2026</strong></span>
+    </div>
+  </header>
+
+  <div class="doc-body">
+
+    <!-- ===== EXECUTIVE SUMMARY ===== -->
+    <section>
+      <span class="sec-num">Executive Summary</span>
+      <p class="lead">Stephy Salazar has the one thing that is hardest to build and easiest to lose: a genuine, warm connection to a specific community. She is bilingual English / Spanish, she is Latina, she serves the Austin metro, and she runs a real "Book Club Latinas" WhatsApp community around home ownership. In a market where roughly one-third of the metro is Hispanic and Latinos are the single largest driver of new homeownership in the country, that is not a soft asset. It is <strong>the most valuable positioning a newer Austin agent could hold.</strong></p>
+      <p>What she does not have is anywhere to put it. Her only "website" is a generic eXp IDX subdomain (estefaniasalazarmartinez.exprealty.com) that carries no story, no branding, no lead capture, and at one pull even defaulted to the wrong region's listings. Her real personality, her community, and her booking links live scattered across a Linktree. The bilingual, Latina-community angle - the thing that makes her different from every other new agent in Austin - is her strongest card, and it is face-down.</p>
+      <p>This is not a "you are invisible, start over" audit. It is a <strong>"you already own the hardest thing, now build the asset that turns it into leads"</strong> audit. The recommendation is surgical, not sprawling: one owned website that leads with the community, one lead-capture funnel, one review engine, and a simple community-to-lead loop. The upside is unusually high precisely because she is early - the asset built now compounds across the next decade of her career, before the scattered setup calcifies into a habit.</p>
+    </section>
+
+    <!-- ===== 1. THE OPPORTUNITY ===== -->
+    <section>
+      <span class="sec-num">01 &middot; The Opportunity</span>
+      <h2 class="doc-h2">The Austin metro <em>market</em></h2>
+      <div class="table-wrap">
+        <table class="doc-table">
+          <thead><tr><th>Signal</th><th>Figure</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>Austin-Round Rock metro population</td><td>~2.43 million</td><td>U.S. Census Bureau / FRED, 2024</td></tr>
+            <tr><td>Hispanic / Latino share of the metro</td><td>~33% (roughly one-third)</td><td>U.S. Census Bureau, ACS ~2022-2023</td></tr>
+            <tr><td>Austin metro median home price</td><td>~$439K MSA median (list medians run higher)</td><td>Austin Board of Realtors, late 2025</td></tr>
+            <tr><td>Buyers who use the internet in their search</td><td>97%</td><td>NAR Profile of Home Buyers &amp; Sellers, 2024</td></tr>
+            <tr><td>Buyers whose first step was searching online</td><td>~43% (the most common first step)</td><td>NAR, 2024</td></tr>
+            <tr><td>Buyers who still purchase through an agent</td><td>88%</td><td>NAR, 2024</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The pattern is the story: buyers start online, then choose a human. Almost everyone (97%) researches on the internet first, and the most common very-first step is looking online (~43%) - yet 88% still complete the purchase with an agent. So the funnel is clear. People find you online, form a first impression, and only then reach out. <strong>For Stephy, that first impression is currently a stock brokerage listing feed.</strong> There is nothing there for a nervous first-time buyer to trust.</p>
+
+      <h2 class="doc-h2" style="margin-top:36px">The Latino <em>homeownership wave</em></h2>
+      <div class="table-wrap">
+        <table class="doc-table">
+          <thead><tr><th>Signal</th><th>Figure</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>U.S. Hispanic homeownership rate (2024)</td><td>49.0%</td><td>NAHREP State of Hispanic Homeownership Report, 2024</td></tr>
+            <tr><td>Total Hispanic homeowner households</td><td>9.8 million (record high)</td><td>NAHREP, 2024</td></tr>
+            <tr><td>Net-new Hispanic homeowner households in 2024</td><td>+238,000 (largest gain of any group, 2nd year running)</td><td>NAHREP, 2024</td></tr>
+            <tr><td>Hispanic share of the last decade's U.S. homeownership growth</td><td>~51%</td><td>NAHREP, 2024</td></tr>
+            <tr><td>Projected Hispanic share of net-new U.S. homeowners, 2020-2040</td><td>~70%</td><td>Urban Institute, 2023-2024</td></tr>
+            <tr><td>Latino agents' transactions involving Spanish</td><td>~40% (about a quarter conducted in Spanish only)</td><td>NAHREP, ~2024-2025</td></tr>
+            <tr><td>First-time buyer share of all buyers (national)</td><td>24% (a historic low, down from 32%)</td><td>NAR Profile, 2024</td></tr>
+            <tr><td>Median first-time-buyer age</td><td>38 (a record high)</td><td>NAR Profile, 2024</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Read together, these numbers point at exactly the lane Stephy already stands in. Latinos are the growth engine of American homeownership - about half of the last decade's gains and a projected ~70% of net-new owners through 2040. Roughly 40% of Latino agents' deals involve Spanish, and the mortgage process is repeatedly cited as the hardest language barrier. First-time buyers are getting older and squeezed, which means they need more guidance, more patience, and more trust before they act - which is precisely how Stephy already works.</p>
+      <div class="callout">
+        <div class="callout-tag"><iconify-icon icon="mdi:scale-balance"></iconify-icon>Honest framing note</div>
+        <p>One buyer survey (BHGRE / NAHREP) found many Hispanic-women respondents did not consider it <em>essential</em> that their agent speak Spanish, even while transaction data shows heavy Spanish use. The takeaway is not "lead with Spanish as a hard requirement." It is that being bilingual and community-rooted is a powerful trust and differentiation asset - the reason a family picks Stephy over a stranger - not a box every buyer consciously ticks. The site is built to reflect that: <strong>warmth and community first, language as the proof underneath.</strong></p>
+      </div>
+    </section>
+
+    <!-- ===== 2. CURRENT-STATE AUDIT ===== -->
+    <section>
+      <span class="sec-num">02 &middot; Current-State Audit</span>
+      <h2 class="doc-h2">Where the story <em>leaks out</em></h2>
+
+      <h3 class="doc-h3">2.1 &middot; No real website - the "site" is a stock listing feed</h3>
+      <p>Stephy's only web presence beyond social is estefaniasalazarmartinez.exprealty.com, a generic eXp IDX subdomain with no story, no branding, no Austin-specific content, and no lead capture. When pulled, it even defaulted to a listing feed from the wrong region. This is the single biggest gap: <strong>she owns nothing searchable, nothing branded, and nothing that captures a lead.</strong> For a category where 97% of buyers research online first, the current front door works against her.</p>
+
+      <h3 class="doc-h3">2.2 &middot; Her best asset is buried in a Linktree</h3>
+      <p>The bilingual, Latina-community angle - the differentiator - lives as one link among many in a Linktree rather than as the spine of a brand. Book Club Latinas, her genuine signature, is a line item, not a landing page. Her strongest card is face-down.</p>
+
+      <h3 class="doc-h3">2.3 &middot; Traffic scatters, nothing converts</h3>
+      <p>The Linktree fans visitors out to a WhatsApp group, a Calendly, a separate Spanish 15-minute booking link, and a stock brokerage feed. Four destinations, no single owned page that captures an email or presents one clear next step. Visitors leak out in every direction and none of them are captured for follow-up.</p>
+
+      <h3 class="doc-h3">2.4 &middot; Two booking systems and a group chat, no clear CTA</h3>
+      <p>A first-time visitor faces a choice between a WhatsApp community, a general consult link, and a Spanish call link, with no guidance on which is for them. Choice is friction. <strong>One clear, warm path ("say hola") converts better than three good ones competing for the same click.</strong></p>
+
+      <h3 class="doc-h3">2.5 &middot; Invisible on the directories buyers use</h3>
+      <p>No Zillow, realtor.com, or Google review presence surfaced under her name. For a newer agent, an empty review footprint plus no website means a buyer who researches her before reaching out finds almost nothing to build confidence on - at exactly the moment 88% of them are deciding whether to trust a human with the biggest purchase of their life.</p>
+
+      <h3 class="doc-h3">2.6 &middot; Entirely dependent on Instagram</h3>
+      <p>Instagram is login-walled, unindexed, and rented. If the platform changes its rules or her reach dips, she has no owned, searchable asset to fall back on. Everything is built on ground she does not control.</p>
+
+      <h3 class="doc-h3">Audit scorecard</h3>
+      <div class="table-wrap">
+        <table class="doc-table">
+          <thead><tr><th>Area</th><th>Score</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Owned website</td><td>1 / 10</td><td>Generic IDX subdomain, wrong-region feed, no capture</td></tr>
+            <tr><td>Brand / positioning clarity</td><td>4 / 10</td><td>Real niche exists but is buried, not built</td></tr>
+            <tr><td>Lead capture &amp; conversion</td><td>2 / 10</td><td>Four scattered destinations, zero email capture</td></tr>
+            <tr><td>Directory / review presence</td><td>2 / 10</td><td>No Google / Zillow / realtor.com footprint found</td></tr>
+            <tr><td>Community asset leverage</td><td>5 / 10</td><td>Book Club Latinas is real but under-used as a brand</td></tr>
+            <tr><td>Platform independence</td><td>2 / 10</td><td>Almost entirely Instagram-dependent</td></tr>
+            <tr class="total-row"><td><strong>Overall</strong></td><td><strong>~17 / 50</strong></td><td><strong>High-upside because the hardest asset already exists</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== 3. POSITIONING OPPORTUNITY ===== -->
+    <section>
+      <span class="sec-num">03 &middot; The Positioning Opportunity</span>
+      <h2 class="doc-h2">Own a lane no one else <em>is built for</em></h2>
+      <p>Most new Austin agents compete on the same crowded ground: "call me for all your real-estate needs." Stephy should not compete there. She should own a lane no one else in her market is built for.</p>
+      <div class="flywheel">
+        <div class="fw-tag">The lane</div>
+        <p>The bilingual, Latina first-time-buyer's agent - and the community that comes with her.</p>
+      </div>
+      <p>That lane is defensible for three reasons the data backs up:</p>
+      <ol class="doc-list">
+        <li><strong>The market is there and growing.</strong> Roughly one-third of the Austin metro is Hispanic, and Latinos drive about half of the nation's homeownership growth and a projected ~70% of net-new owners through 2040. This is not a niche shrinking into a corner; it is the center of where the market is heading.</li>
+        <li><strong>The trust gap is real.</strong> The mortgage and contract process is repeatedly cited as the hardest language barrier for Spanish-speaking buyers. An agent who removes that barrier - patiently, line by line, in the language a family thinks in - is not a commodity. She is a relief.</li>
+        <li><strong>The community is a flywheel no competitor can copy overnight.</strong> Book Club Latinas turns Stephy's care into a self-reinforcing loop: women join for support, learn about home ownership together, and become buyers (and referrers) over time. A listing feed cannot do that. A relationship can.</li>
+      </ol>
+      <div class="flywheel">
+        <div class="fw-tag">The community flywheel, in one line</div>
+        <p>Free community brings women in &rarr; the site captures their email with a warm first-home guide &rarr; nurture and real conversations build trust &rarr; trust becomes buyers &rarr; happy buyers refer more women back into the community. The owned website is the missing hub that makes that loop turn.</p>
+      </div>
+    </section>
+
+    <!-- ===== 4. 90-DAY PLAN ===== -->
+    <section>
+      <span class="sec-num">04 &middot; The 90-Day Plan</span>
+      <h2 class="doc-h2">Surgical, <em>not sprawling</em></h2>
+
+      <div class="phase">
+        <h3>Phase 1: The owned home base <span class="wk">Weeks 1-2</span></h3>
+        <ul class="doc-list">
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>Launch a real, owned website that leads with the bilingual, community-first brand (the concept redesign in the demo is the direction).</li>
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>One clear primary path: "say hola" &rarr; WhatsApp or a single booking link. Retire the four-way Linktree scatter into one warm next step.</li>
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>Bilingual throughout: English and Spanish woven together, not a separate translated page.</li>
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>Basic on-page SEO for the searches that matter locally (bilingual Austin agent, Spanish-speaking realtor Austin, first-time buyer help).</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <h3>Phase 2: One funnel <span class="wk">Weeks 2-5</span></h3>
+        <ul class="doc-list">
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>Build and wire the lead magnet: the free bilingual "Primera Casa / First-Home Starter Guide."</li>
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>Name + email capture on the site, delivering the guide automatically.</li>
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>A short, warm bilingual welcome email sequence (3-5 notes) that introduces Stephy, invites the reader into Book Club Latinas, and offers the free chat.</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <h3>Phase 3: The review engine <span class="wk">Weeks 3-8</span></h3>
+        <ul class="doc-list">
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>Stand up her Google Business Profile and claim / complete Zillow and realtor.com so a buyer who researches her finds something.</li>
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>A simple post-close review request flow so the proof footprint starts filling in - the thing a newer agent most needs.</li>
+        </ul>
+      </div>
+
+      <div class="phase">
+        <h3>Phase 4: Community-to-lead loop <span class="wk">Weeks 6-12</span></h3>
+        <ul class="doc-list">
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>Connect Book Club Latinas to the site so the community feeds the email list and the guide, and the site feeds the community.</li>
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>Light content cadence (a first-home tip, a member spotlight, a market note) that keeps the loop warm.</li>
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>Monthly one-page performance snapshot.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== 5. WEBSITE SPEC ===== -->
+    <section>
+      <span class="sec-num">05 &middot; Website Specification</span>
+      <h2 class="doc-h2">The asset, <em>tier by tier</em></h2>
+      <div class="tier">
+        <div class="tier-ico"><iconify-icon icon="mdi:home-city-outline"></iconify-icon></div>
+        <div class="tier-body"><h4>Tier 1 - Owned home base</h4><p>A single, self-contained, mobile-first site on a domain Stephy owns. Warm plum + rose palette, Newsreader serif, community-first voice. Sticky nav, working mobile menu, smooth reveal animations.</p></div>
+      </div>
+      <div class="tier">
+        <div class="tier-ico"><iconify-icon icon="mdi:account-group-outline"></iconify-icon></div>
+        <div class="tier-body"><h4>Tier 2 - Community as the spine</h4><p>Book Club Latinas is built as a real feature section, not a footnote - the differentiator gets the spotlight it earns.</p></div>
+      </div>
+      <div class="tier">
+        <div class="tier-ico"><iconify-icon icon="mdi:translate"></iconify-icon></div>
+        <div class="tier-body"><h4>Tier 3 - Bilingual by design</h4><p>English and Spanish live side by side across the page (hero, process steps, FAQ, lead magnet), so a Spanish-speaking visitor feels at home immediately rather than hunting for a translate button.</p></div>
+      </div>
+      <div class="tier">
+        <div class="tier-ico"><iconify-icon icon="mdi:target"></iconify-icon></div>
+        <div class="tier-body"><h4>Tier 4 - Conversion architecture</h4><p>One primary CTA ("say hola," routed to her real booking / WhatsApp link), a "how it works" process section that de-mystifies the journey, an FAQ that answers the real fears, and the lead-magnet capture that turns a visitor into a contact.</p></div>
+      </div>
+      <div class="tier">
+        <div class="tier-ico"><iconify-icon icon="mdi:shield-check-outline"></iconify-icon></div>
+        <div class="tier-body"><h4>Tier 5 - Trust surfaces</h4><p>A values / credential bar (eXp Realty, Bilingual EN/ES, Community-first, 1-on-1 care), a warm About section, and stat tiles that are honest today and ready to fill in with real numbers and a real Google rating as the review engine produces them (currently placeholder-flagged, never faked).</p></div>
+      </div>
+    </section>
+
+    <!-- ===== 6. LEAD-GEN FUNNEL ===== -->
+    <section>
+      <span class="sec-num">06 &middot; Lead-Gen Funnel</span>
+      <h2 class="doc-h2">One magnet, one list, <em>one warm path</em></h2>
+      <p>The funnel is deliberately simple - one magnet, one list, one warm path to a conversation.</p>
+      <ol class="doc-list">
+        <li><strong>Top - the magnet.</strong> The free bilingual "Primera Casa / First-Home Starter Guide": what to save, how credit and pre-approval work, first-time-buyer help many families miss, and the whole journey paso a paso. It is genuinely useful and it is exactly what her audience is anxious about.</li>
+        <li><strong>Capture.</strong> Name + email on the site delivers the guide instantly and adds the contact to Stephy's owned list - the asset the current Linktree setup throws away.</li>
+        <li><strong>Nurture.</strong> A short, warm bilingual welcome sequence introduces Stephy, invites the reader into Book Club Latinas, and makes the free-chat offer feel like an invitation, not a pitch.</li>
+        <li><strong>Convert.</strong> One clear next step - "say hola" - routed to her real WhatsApp / booking link, in the language the reader chose.</li>
+        <li><strong>Compound.</strong> Buyers refer, the community grows, and the list feeds itself. The website is the hub the whole loop turns on.</li>
+      </ol>
+    </section>
+
+    <!-- ===== 7. KPIs ===== -->
+    <section>
+      <span class="sec-num">07 &middot; KPIs &amp; Reporting</span>
+      <h2 class="doc-h2">Results Stephy <em>can actually see</em></h2>
+      <div class="table-wrap">
+        <table class="doc-table">
+          <thead><tr><th>KPI</th><th>Baseline</th><th>30-day</th><th>60-day</th><th>90-day</th></tr></thead>
+          <tbody>
+            <tr><td>Owned, branded website live</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+            <tr><td>Email captures from the free guide</td><td>0</td><td>First captures</td><td>Growing list</td><td>Steady weekly flow</td></tr>
+            <tr><td>Single clear CTA path (vs. 4-way scatter)</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+            <tr><td>Google Business Profile live &amp; complete</td><td>No</td><td>Claimed</td><td>Complete</td><td>Collecting reviews</td></tr>
+            <tr><td>New Google reviews</td><td>0</td><td>First reviews</td><td>Growing</td><td>Review habit in place</td></tr>
+            <tr><td>Book-Club-to-list connection</td><td>None</td><td>Wired</td><td>Feeding list</td><td>Compounding</td></tr>
+            <tr><td>Booked buyer conversations from the site</td><td>TBD</td><td>First</td><td>Growing</td><td>Steady</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Numbers are directional, not guarantees. The point of the reporting is simple: replace "everything lives on Instagram and a Linktree" with an owned funnel whose results Stephy can actually see.</p>
+    </section>
+
+    <!-- ===== 8. RISK REVERSAL ===== -->
+    <section>
+      <span class="sec-num">08 &middot; Risk Reversal</span>
+      <h2 class="doc-h2">Easy to <em>say yes</em> to</h2>
+      <ul class="doc-list">
+        <li><iconify-icon icon="mdi:key-variant"></iconify-icon><strong>Own the asset from day one.</strong> The website, the domain, the email list, and the content are Stephy's - not rented from a platform or locked in a brokerage subdomain. If she and AG1 ever part ways, she keeps the whole thing.</li>
+        <li><iconify-icon icon="mdi:hand-heart-outline"></iconify-icon><strong>Nothing faked, ever.</strong> No invented reviews, sales numbers, follower counts, or credentials. Every unverified figure stays placeholder-flagged until Stephy confirms it. Her trust with her community is the asset; it will never be spent for a shinier stat.</li>
+        <li><iconify-icon icon="mdi:stairs-up"></iconify-icon><strong>Start small, prove it, then scale.</strong> The foundation tier is a fixed, defined scope - one site, one funnel, one review engine - so the first engagement is low-risk and easy to say yes to before anything larger.</li>
+      </ul>
+    </section>
+
+    <!-- ===== 9. INVESTMENT FRAMING ===== -->
+    <section>
+      <span class="sec-num">09 &middot; Investment Framing</span>
+      <h2 class="doc-h2">Scoped <em>in tiers</em></h2>
+      <p>Scoped in tiers so Stephy can start where it makes sense for a newer agent and grow into the rest as the funnel proves itself. (Specific pricing is discussed live, matched to her stage.)</p>
+      <div class="invest">
+        <div class="invest-card featured">
+          <div class="inv-tag">Start here</div>
+          <h4>Starter / Foundation</h4>
+          <p>The owned website + the single free-chat CTA path + basic on-page SEO. The one asset that ends the Linktree scatter and gives her a real front door. Fixed scope, easy first yes.</p>
+        </div>
+        <div class="invest-card">
+          <div class="inv-tag">Next</div>
+          <h4>Growth</h4>
+          <p>Foundation + the full lead-gen funnel (magnet, capture, bilingual nurture sequence) + the review engine (Google Business Profile, Zillow / realtor.com, review requests). This is where captured leads and a growing proof footprint start compounding.</p>
+        </div>
+        <div class="invest-card">
+          <div class="inv-tag">The full engine</div>
+          <h4>Community Flywheel</h4>
+          <p>Growth + the community-to-lead loop, ongoing content cadence, and monthly reporting - the full engine that turns Book Club Latinas into a durable, self-feeding lead source.</p>
+        </div>
+      </div>
+      <p>The framing is deliberately stage-appropriate: a newer agent should not overspend on infrastructure before there is traffic to convert. Start with the front door, add the funnel once it is capturing, layer the flywheel once the funnel is turning.</p>
+    </section>
+
+    <!-- ===== 10. WHY NOW ===== -->
+    <section>
+      <span class="sec-num">10 &middot; Why Now</span>
+      <h2 class="doc-h2">The market is moving <em>toward her</em></h2>
+      <ol class="doc-list">
+        <li><strong>She is early - which is the whole point.</strong> Stephy already has the hardest thing to build (a real niche and genuine community warmth) and almost none of the infrastructure. Building the owned asset now, before the scattered setup hardens into habit, means it compounds across her entire career instead of being retrofitted later.</li>
+        <li><strong>The market is moving toward her, not away.</strong> Latinos are driving roughly half of U.S. homeownership growth and a projected ~70% of net-new owners through 2040. The lane she already stands in is the center of where the market is heading.</li>
+        <li><strong>First-time buyers need more hand-holding than ever.</strong> With the first-time-buyer share at a historic low and the median first-time buyer now 38, the buyers who do move need exactly the patient, bilingual, community-backed guidance Stephy is built to give. An owned site that captures and nurtures them is how that patience turns into closings.</li>
+      </ol>
+    </section>
+
+    <!-- ===== 11. NEXT STEPS ===== -->
+    <section>
+      <span class="sec-num">11 &middot; Next Steps</span>
+      <h2 class="doc-h2">Three <em>simple moves</em></h2>
+      <ol class="doc-list">
+        <li><strong>A short, no-pressure call</strong> to confirm the real numbers (families guided home, years licensed, and anything currently placeholder-flagged) and Stephy's own booking preferences.</li>
+        <li><strong>Point the concept redesign at her real details</strong> - headshot, confirmed stats, and her preferred single CTA path.</li>
+        <li><strong>Ship the Foundation</strong> - the owned website and the one clear "say hola" path - then layer the funnel and review engine from there.</li>
+      </ol>
+      <div class="divider-motif"><span class="line"></span><iconify-icon icon="mdi:home-heart"></iconify-icon><span class="line rev"></span></div>
+    </section>
+
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <div class="doc-cta">
+    <a href="index.html"><iconify-icon icon="mdi:eye-outline"></iconify-icon>View the live demo site</a>
+  </div>
+
+  <div class="doc-foot">
+    <p><em>Confidential. Prepared for Estefania Salazar, July 2026.</em><br>AG1 Consulting &middot; Andrei Givero</p>
+  </div>
+
+</div>
+
+</body>
+</html>
