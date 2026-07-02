@@ -40,7 +40,15 @@ a{color:inherit;text-decoration:none}
 iconify-icon{display:inline-block;vertical-align:-0.125em}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 22% 0%,rgba(215,106,130,0.1),transparent 55%),radial-gradient(ellipse 60% 50% at 85% 100%,rgba(240,196,160,0.06),transparent 55%);pointer-events:none;z-index:0}
 
-nav{position:fixed;top:0;left:0;right:0;padding:14px 0;background:rgba(28,14,22,0.84);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,0.04);z-index:100}
+/* ===== WARM DIVIDER MOTIF ===== */
+.divider-motif{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto}
+.divider-motif .line{width:44px;height:1px;background:linear-gradient(90deg,transparent,var(--rose))}
+.divider-motif .line.rev{background:linear-gradient(90deg,var(--rose),transparent)}
+.divider-motif iconify-icon{color:var(--rose);font-size:16px}
+
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;padding:16px 0;background:rgba(28,14,22,0.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,0.03);z-index:100;transition:padding 0.3s ease,background 0.3s ease,box-shadow 0.3s ease}
+nav.shrink{padding:9px 0;background:rgba(28,14,22,0.92);box-shadow:0 10px 30px rgba(0,0,0,0.3)}
 .nav-inner{max-width:1320px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;gap:28px}
 .logo{font-family:'Newsreader',serif;font-weight:600;font-size:24px;letter-spacing:0.01em;color:var(--cream);display:flex;align-items:baseline;gap:8px;font-style:italic}
 .logo .em{color:var(--rose-bright)}
@@ -50,14 +58,28 @@ nav{position:fixed;top:0;left:0;right:0;padding:14px 0;background:rgba(28,14,22,
 .nav-links a:hover{color:var(--rose-bright)}
 .nav-cta{padding:10px 22px;background:var(--rose);color:var(--plum-deep);border-radius:100px;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.25s}
 .nav-cta:hover{background:var(--rose-bright);transform:translateY(-1px)}
-@media(max-width:980px){.nav-links a:not(.nav-cta){display:none}}
+.nav-toggle{display:none;background:transparent;border:1px solid var(--border-bright);color:var(--rose-bright);width:44px;height:44px;border-radius:12px;cursor:pointer;align-items:center;justify-content:center;font-size:24px;transition:all 0.2s}
+.nav-toggle:hover{background:var(--rose-soft)}
+/* mobile menu panel */
+.mobile-menu{position:fixed;top:0;right:0;bottom:0;width:min(84vw,340px);background:linear-gradient(160deg,var(--plum-elev),var(--plum-deep));border-left:1px solid var(--border-bright);z-index:130;transform:translateX(100%);transition:transform 0.36s cubic-bezier(0.4,0,0.2,1);padding:26px 26px 40px;display:flex;flex-direction:column;box-shadow:-30px 0 60px rgba(0,0,0,0.5)}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px}
+.mobile-menu-head .m-close{background:transparent;border:0;color:var(--rose-bright);font-size:30px;cursor:pointer;line-height:1;width:40px;height:40px}
+.mobile-menu a{font-family:'Newsreader',serif;font-style:italic;font-size:24px;color:var(--cream);padding:15px 0;border-bottom:1px solid var(--border);transition:color 0.2s;display:flex;align-items:center;gap:14px}
+.mobile-menu a iconify-icon{font-size:20px;color:var(--rose)}
+.mobile-menu a:hover{color:var(--rose-bright)}
+.mobile-menu .m-cta{margin-top:26px;background:var(--rose);color:var(--plum-deep);border:0;border-radius:100px;text-align:center;justify-content:center;font-family:'Inter',sans-serif;font-style:normal;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:16px}
+.mobile-scrim{position:fixed;inset:0;background:rgba(12,6,10,0.6);backdrop-filter:blur(3px);z-index:125;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.mobile-scrim.open{opacity:1;pointer-events:auto}
+@media(max-width:980px){.nav-links{display:none}.nav-toggle{display:flex}}
 
+/* ===== HERO ===== */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2400&q=80');background-size:cover;background-position:center;animation:kenburns 32s ease-in-out infinite alternate;filter:saturate(1.03)}
 @keyframes kenburns{0%{transform:scale(1.0) translate(0,0)}100%{transform:scale(1.12) translate(-2%,-2%)}}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(28,14,22,0.93) 0%,rgba(28,14,22,0.64) 46%,rgba(42,22,34,0.3) 100%)}
 .hero-overlay::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 28% 68%,rgba(215,106,130,0.16),transparent 62%)}
-.hero-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:140px 28px 100px;width:100%}
+.hero-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:150px 28px 110px;width:100%}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:12px;padding:9px 18px;border:1px solid var(--border-bright);border-radius:100px;background:var(--rose-soft);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose-bright);margin-bottom:34px;font-weight:600}
 .hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--rose-bright);box-shadow:0 0 8px var(--rose-bright);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
@@ -79,8 +101,10 @@ nav{position:fixed;top:0;left:0;right:0;padding:14px 0;background:rgba(28,14,22,
 .hero-meta-grid dd{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-dim);margin-top:4px}
 @media(max-width:1080px){.hero-meta{display:none}}
 
+/* ===== SECTION DEFAULTS ===== */
 section{padding:118px 0;position:relative;z-index:1}
 .container{max-width:1320px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+.container-narrow{max-width:960px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
 .section-eyebrow{font-size:11px;letter-spacing:0.26em;text-transform:uppercase;color:var(--rose);margin-bottom:18px;display:inline-flex;align-items:center;gap:14px;font-weight:600}
 .section-eyebrow::before{content:'';width:30px;height:1px;background:var(--rose)}
 .section-title{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(36px,4.8vw,64px);line-height:1.04;letter-spacing:-0.01em;color:var(--cream);margin-bottom:22px;max-width:24ch;font-style:italic}
@@ -91,8 +115,22 @@ section{padding:118px 0;position:relative;z-index:1}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease}
 .reveal.in{opacity:1;transform:none}
 
-.trust{background:var(--plum);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 0}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border)}
+/* ===== VALUES / TRUST BAR ===== */
+.values{background:var(--plum);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:56px 0}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.value-tile{padding:32px 26px;border-right:1px solid var(--border);background:rgba(58,33,48,0.4);display:flex;align-items:center;gap:16px;transition:background 0.3s}
+.value-tile:last-child{border-right:0}
+.value-tile:hover{background:rgba(58,33,48,0.7)}
+.value-ico{width:46px;height:46px;flex-shrink:0;border-radius:12px;background:var(--rose-soft);border:1px solid var(--border-bright);display:flex;align-items:center;justify-content:center}
+.value-ico iconify-icon{font-size:22px;color:var(--rose-bright)}
+.value-tile h4{font-family:'Newsreader',serif;font-style:italic;font-size:19px;color:var(--cream);font-weight:600;line-height:1.1}
+.value-tile p{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-top:4px}
+@media(max-width:900px){.values-grid{grid-template-columns:repeat(2,1fr)}.value-tile:nth-child(2){border-right:0}.value-tile:nth-child(1),.value-tile:nth-child(2){border-bottom:1px solid var(--border)}}
+@media(max-width:480px){.values-grid{grid-template-columns:1fr}.value-tile{border-right:0 !important;border-bottom:1px solid var(--border)}.value-tile:last-child{border-bottom:0}}
+
+/* ===== STAT BAND ===== */
+.trust{background:var(--plum-deep);padding:80px 0}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden}
 .stat-tile{padding:38px 20px;text-align:center;border-right:1px solid var(--border);background:rgba(58,33,48,0.4)}
 .stat-tile:last-child{border-right:0}
 .stat-num{font-family:'Newsreader',serif;font-style:italic;font-size:clamp(30px,3.4vw,46px);color:var(--rose-bright);line-height:1;font-weight:600}
@@ -101,7 +139,8 @@ section{padding:118px 0;position:relative;z-index:1}
 .stat-flag{display:block;font-size:9px;color:var(--text-dim);margin-top:6px;font-style:italic;letter-spacing:0.04em;text-transform:none}
 @media(max-width:820px){.stat-grid{grid-template-columns:repeat(2,1fr)}.stat-tile:nth-child(2){border-right:0}.stat-tile:nth-child(1),.stat-tile:nth-child(2){border-bottom:1px solid var(--border)}}
 
-.community{background:var(--plum-deep)}
+/* ===== COMMUNITY (EN ESPANOL) ===== */
+.community{background:var(--plum)}
 .cm-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 @media(max-width:940px){.cm-grid{grid-template-columns:1fr;gap:40px}}
 .cm-card{background:linear-gradient(150deg,var(--plum-elev),var(--plum));border:1px solid var(--border);border-radius:16px;padding:44px;position:relative;overflow:hidden}
@@ -114,6 +153,22 @@ section{padding:118px 0;position:relative;z-index:1}
 .cm-list iconify-icon{color:var(--rose);font-size:20px;flex-shrink:0;margin-top:2px}
 .cm-list strong{color:var(--cream);font-weight:600}
 
+/* ===== HOW IT WORKS / PROCESS ===== */
+.process{background:var(--plum-deep);position:relative;overflow:hidden}
+.process::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 12%,rgba(240,196,160,0.06),transparent 55%);pointer-events:none}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:52px}
+.p-step{padding:44px 30px;border-right:1px solid var(--border);position:relative}
+.p-step:last-child{border-right:0}
+.p-step .p-ico{width:56px;height:56px;border-radius:16px;background:var(--rose-soft);border:1px solid var(--border-bright);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
+.p-step .p-ico iconify-icon{font-size:28px;color:var(--rose-bright)}
+.p-num{font-family:'Newsreader',serif;font-style:italic;font-size:15px;color:var(--rose);font-weight:600;letter-spacing:0.06em;display:block;margin-bottom:8px}
+.p-step h3{font-family:'Newsreader',serif;font-style:italic;font-size:23px;color:var(--cream);margin-bottom:6px;font-weight:600;line-height:1.2}
+.p-step .p-es{font-size:12px;color:var(--rose-bright);font-style:italic;margin-bottom:12px;letter-spacing:0.02em}
+.p-step p{font-size:14px;color:var(--text-muted);line-height:1.7;font-weight:300}
+@media(max-width:980px){.process-steps{grid-template-columns:repeat(2,1fr)}.p-step:nth-child(2){border-right:0}.p-step:nth-child(1),.p-step:nth-child(2){border-bottom:1px solid var(--border)}}
+@media(max-width:560px){.process-steps{grid-template-columns:1fr}.p-step{border-right:0;border-bottom:1px solid var(--border)}.p-step:last-child{border-bottom:0}}
+
+/* ===== PROGRAMS ===== */
 .programs{background:var(--plum)}
 .prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 @media(max-width:940px){.prog-grid{grid-template-columns:1fr}}
@@ -126,6 +181,7 @@ section{padding:118px 0;position:relative;z-index:1}
 .prog-card h3{font-family:'Newsreader',serif;font-weight:600;font-size:24px;color:var(--cream);margin-bottom:14px}
 .prog-card p{font-size:15px;color:var(--text-muted);line-height:1.65;font-weight:300}
 
+/* ===== STORY ===== */
 .story{background:var(--plum-deep)}
 .story-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;align-items:center}
 @media(max-width:940px){.story-grid{grid-template-columns:1fr;gap:40px}}
@@ -139,26 +195,90 @@ section{padding:118px 0;position:relative;z-index:1}
 .story-cred-tag{font-family:'Newsreader',serif;font-style:italic;font-size:18px;color:var(--rose-bright);font-weight:600;margin-bottom:4px}
 .story-cred-label{font-size:11px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
 
-.bookclub{background:var(--plum)}
-.bc-inner{background:linear-gradient(135deg,var(--plum-elev),var(--plum-deep));border:1px solid var(--border-bright);border-radius:22px;padding:60px 52px;text-align:center;position:relative;overflow:hidden}
-.bc-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(215,106,130,0.14),transparent 60%)}
-.bc-inner iconify-icon.big{font-size:44px;color:var(--rose-bright);margin-bottom:20px;position:relative}
-.bc-inner h2{font-family:'Newsreader',serif;font-style:italic;font-weight:500;font-size:clamp(30px,3.8vw,50px);color:var(--cream);margin-bottom:18px;position:relative}
-.bc-inner h2 em{color:var(--rose-bright)}
-.bc-inner p{font-size:17px;color:var(--text-muted);max-width:54ch;margin:0 auto 30px;line-height:1.7;font-weight:300;position:relative}
-.bc-inner .cta-primary{position:relative}
+/* ===== BOOK CLUB (SIGNATURE FEATURE) ===== */
+.bookclub{background:var(--plum);position:relative;overflow:hidden}
+.bookclub::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 15% 20%,rgba(215,106,130,0.08),transparent 55%);pointer-events:none}
+.bc-header{text-align:center;max-width:760px;margin:0 auto 56px}
+.bc-header .bc-badge{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border:1px solid var(--border-bright);border-radius:100px;background:var(--rose-soft);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose-bright);margin-bottom:22px;font-weight:600}
+.bc-header h2{font-family:'Newsreader',serif;font-style:italic;font-weight:500;font-size:clamp(34px,4.6vw,60px);color:var(--cream);margin-bottom:20px;line-height:1.05}
+.bc-header h2 em{color:var(--rose-bright)}
+.bc-header p{font-size:17px;color:var(--text-muted);line-height:1.7;font-weight:300}
+.bc-body{display:grid;grid-template-columns:1.05fr 0.95fr;gap:54px;align-items:center}
+@media(max-width:940px){.bc-body{grid-template-columns:1fr;gap:44px}}
+.bc-feature-list{display:grid;gap:20px}
+.bc-feature{display:flex;gap:18px;align-items:flex-start;padding:22px 24px;background:linear-gradient(150deg,var(--plum-elev),var(--plum-deep));border:1px solid var(--border);border-radius:14px;transition:all 0.3s}
+.bc-feature:hover{border-color:var(--border-bright);transform:translateX(4px)}
+.bc-feature .bcf-ico{width:48px;height:48px;flex-shrink:0;border-radius:12px;background:var(--rose-soft);border:1px solid var(--border-bright);display:flex;align-items:center;justify-content:center}
+.bc-feature .bcf-ico iconify-icon{font-size:24px;color:var(--rose-bright)}
+.bc-feature h4{font-family:'Newsreader',serif;font-style:italic;font-size:20px;color:var(--cream);font-weight:600;margin-bottom:5px}
+.bc-feature p{font-size:14px;color:var(--text-muted);line-height:1.6;font-weight:300}
+.bc-card{background:linear-gradient(135deg,var(--plum-elev),var(--plum-deep));border:1px solid var(--border-bright);border-radius:22px;padding:48px 42px;text-align:center;position:relative;overflow:hidden}
+.bc-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(215,106,130,0.16),transparent 62%)}
+.bc-card iconify-icon.big{font-size:52px;color:var(--rose-bright);margin-bottom:20px;position:relative}
+.bc-card .bc-quote{font-family:'Newsreader',serif;font-style:italic;font-size:23px;color:var(--cream);line-height:1.4;margin-bottom:10px;position:relative}
+.bc-card .bc-quote-en{font-size:13px;color:var(--text-dim);font-style:italic;margin-bottom:28px;position:relative}
+.bc-card .cta-primary{position:relative}
+.bc-card .bc-note{font-size:12px;color:var(--text-dim);margin-top:18px;position:relative;letter-spacing:0.02em}
 
-.final{background:var(--plum-deep);text-align:center}
-.final-inner{max-width:760px;margin:0 auto;padding:0 28px}
+/* ===== LEAD MAGNET ===== */
+.guide{background:var(--plum-deep);position:relative;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.guide::before{content:'';position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=2000&q=70');background-size:cover;background-position:center;opacity:0.08;filter:saturate(0.9)}
+.guide-inner{position:relative;display:grid;grid-template-columns:1.1fr 0.9fr;gap:72px;align-items:center}
+@media(max-width:980px){.guide-inner{grid-template-columns:1fr;gap:48px}}
+.guide-text h2{font-family:'Newsreader',serif;font-style:italic;font-size:clamp(34px,4.4vw,58px);line-height:1.03;color:var(--cream);margin-bottom:20px;font-weight:500;max-width:20ch}
+.guide-text h2 strong{font-style:normal;font-weight:600}
+.guide-text h2 em{color:var(--rose-bright)}
+.guide-text .g-lead{font-size:16px;color:var(--text-muted);max-width:52ch;line-height:1.75;margin-bottom:22px;font-weight:300}
+.guide-text .g-lead strong{color:var(--cream);font-weight:500}
+.guide-features{margin:28px 0 34px;list-style:none}
+.guide-features li{padding:13px 0;border-top:1px solid var(--border);font-size:14px;color:var(--text-muted);display:flex;align-items:flex-start;gap:14px;font-weight:300}
+.guide-features li iconify-icon{color:var(--rose);font-size:18px;flex-shrink:0;margin-top:2px}
+.guide-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:520px}
+.guide-form input{padding:16px 20px;background:rgba(58,33,48,0.7);border:1px solid var(--border-bright);color:var(--cream);font-size:14px;font-family:inherit;border-radius:100px}
+.guide-form input::placeholder{color:var(--text-dim)}
+.guide-form input:focus{outline:none;border-color:var(--rose-bright)}
+.guide-form button{grid-column:1/-1;justify-content:center}
+.guide-disclaimer{font-size:11px;color:var(--text-dim);margin-top:14px;letter-spacing:0.02em;max-width:52ch;line-height:1.5}
+.guide-visual{position:relative;display:flex;justify-content:center}
+.guide-cover{width:100%;max-width:340px;aspect-ratio:3/4;background:linear-gradient(155deg,var(--plum-elev) 0%,var(--plum) 100%);border:1px solid var(--border-bright);border-radius:14px;padding:44px 34px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 40px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(215,106,130,0.1) inset;transform:rotate(-2.5deg);transition:transform 0.4s}
+.guide-cover:hover{transform:rotate(0deg) scale(1.02)}
+.guide-cover-tag{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--rose-bright);font-weight:600}
+.guide-cover-meta-top{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim);margin-top:12px}
+.guide-cover-title{font-family:'Newsreader',serif;font-style:italic;font-size:38px;line-height:1.06;color:var(--cream);font-weight:500}
+.guide-cover-title em{color:var(--rose-bright)}
+.guide-cover-sub{font-size:13px;color:var(--rose-bright);font-style:italic;margin-top:8px}
+.guide-cover-meta{font-size:11px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;border-top:1px solid var(--border);padding-top:16px}
+
+/* ===== FAQ ===== */
+.faq{background:var(--plum)}
+.faq-list{max-width:860px;margin:52px auto 0;display:grid;gap:14px}
+.faq-item{border:1px solid var(--border);border-radius:14px;background:rgba(58,33,48,0.35);overflow:hidden;transition:border-color 0.3s}
+.faq-item.open{border-color:var(--border-bright)}
+.faq-q{width:100%;text-align:left;background:transparent;border:0;cursor:pointer;padding:26px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:'Newsreader',serif;font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--cream);font-weight:600;line-height:1.3}
+.faq-q .faq-plus{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-bright);display:flex;align-items:center;justify-content:center;color:var(--rose-bright);font-size:20px;transition:transform 0.35s,background 0.3s}
+.faq-item.open .faq-q .faq-plus{transform:rotate(45deg);background:var(--rose-soft)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+.faq-a-inner{padding:0 28px 26px;font-size:15px;color:var(--text-muted);line-height:1.75;font-weight:300}
+.faq-a-inner strong{color:var(--cream);font-weight:500}
+.faq-a-inner .es-tag{display:inline-block;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose-bright);border:1px solid var(--border-bright);border-radius:100px;padding:3px 10px;margin-bottom:12px;font-family:'Inter',sans-serif}
+.faq-a-inner em{color:var(--text-muted);font-style:italic}
+
+/* ===== FINAL CTA ===== */
+.final{background:var(--plum-deep);text-align:center;position:relative;overflow:hidden}
+.final::before{content:'';position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=2000&q=70');background-size:cover;background-position:center;opacity:0.10;filter:saturate(0.95)}
+.final::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,14,22,0.9) 0%,rgba(28,14,22,0.7) 55%,rgba(28,14,22,0.94) 100%)}
+.final-inner{max-width:760px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
 .final h2{font-family:'Newsreader',serif;font-weight:500;font-style:italic;font-size:clamp(34px,4.8vw,62px);line-height:1.05;color:var(--cream);margin-bottom:22px}
 .final h2 strong{font-style:normal;font-weight:600}
 .final h2 em{color:var(--rose-bright);font-style:italic}
 .final p{font-size:17px;color:var(--text-muted);margin-bottom:38px;font-weight:300}
 .final-cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
+/* ===== FOOTER ===== */
 footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 34px}
 .footer-inner{max-width:1320px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
 @media(max-width:820px){.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-inner{grid-template-columns:1fr}}
 .footer-brand p{font-size:13px;color:var(--text-dim);line-height:1.7;margin-top:16px;max-width:40ch;font-weight:300}
 .footer-col h4{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--rose);margin-bottom:16px}
 .footer-col ul{list-style:none;display:grid;gap:11px}
@@ -174,18 +294,35 @@ footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 
 
 <div class="demo-ribbon">Concept redesign built for Stephy Salazar &middot; not an official site</div>
 
-<nav>
+<nav id="nav">
   <div class="nav-inner">
     <a href="#top" class="logo"><span class="em">Homes</span> with Stephy<span class="sub">Austin Realtor</span></a>
     <div class="nav-links">
       <a href="#community">En Espa&ntilde;ol</a>
-      <a href="#programs">How I Help</a>
+      <a href="#process">How It Works</a>
       <a href="#bookclub">Community</a>
+      <a href="#guide">Free Guide</a>
       <a href="#story">About</a>
       <a href="#contact" class="nav-cta">Say Hola</a>
     </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><iconify-icon icon="mdi:menu"></iconify-icon></button>
   </div>
 </nav>
+
+<!-- mobile menu -->
+<div class="mobile-scrim" id="mobileScrim"></div>
+<aside class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <div class="mobile-menu-head">
+    <span class="logo"><span class="em">Homes</span> with Stephy</span>
+    <button class="m-close" id="mClose" aria-label="Close menu">&times;</button>
+  </div>
+  <a href="#community" data-mnav><iconify-icon icon="mdi:translate"></iconify-icon>En Espa&ntilde;ol</a>
+  <a href="#process" data-mnav><iconify-icon icon="mdi:map-marker-path"></iconify-icon>How It Works</a>
+  <a href="#bookclub" data-mnav><iconify-icon icon="mdi:book-heart-outline"></iconify-icon>Community</a>
+  <a href="#guide" data-mnav><iconify-icon icon="mdi:book-open-page-variant-outline"></iconify-icon>Free Guide</a>
+  <a href="#story" data-mnav><iconify-icon icon="mdi:account-heart-outline"></iconify-icon>About Stephy</a>
+  <a href="https://linktr.ee/homeswithstephy" class="m-cta">Say Hola &middot; Book a chat</a>
+</aside>
 
 <header class="hero" id="top">
   <div class="hero-bg"></div>
@@ -211,10 +348,23 @@ footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 
   </div>
 </header>
 
+<!-- ===== VALUES / TRUST BAR ===== -->
+<section class="values">
+  <div class="container">
+    <div class="values-grid">
+      <div class="value-tile"><div class="value-ico"><iconify-icon icon="mdi:home-city-outline"></iconify-icon></div><div><h4>eXp Realty</h4><p>Austin, TX metro</p></div></div>
+      <div class="value-tile"><div class="value-ico"><iconify-icon icon="mdi:translate"></iconify-icon></div><div><h4>Bilingual</h4><p>English &amp; Espa&ntilde;ol</p></div></div>
+      <div class="value-tile"><div class="value-ico"><iconify-icon icon="mdi:account-group-outline"></iconify-icon></div><div><h4>Community-First</h4><p>Book Club Latinas</p></div></div>
+      <div class="value-tile"><div class="value-ico"><iconify-icon icon="mdi:hand-heart-outline"></iconify-icon></div><div><h4>1-on-1 Care</h4><p>Patient, never pushy</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STAT BAND ===== -->
 <section class="trust">
   <div class="container">
     <div class="stat-grid">
-      <div class="stat-tile"><div class="stat-num">100<span class="small">%</span></div><div class="stat-label">Bilingual &middot; English &amp; Spanish</div></div>
+      <div class="stat-tile"><div class="stat-num" data-count="100" data-suffix="%">0<span class="small">%</span></div><div class="stat-label">Bilingual &middot; English &amp; Spanish</div></div>
       <div class="stat-tile"><div class="stat-num">eXp</div><div class="stat-label">Realty &middot; Austin metro</div></div>
       <div class="stat-tile"><div class="stat-num">XX</div><div class="stat-label">Families guided home<span class="stat-flag">confirm real number</span></div></div>
       <div class="stat-tile"><div class="stat-num">5.0</div><div class="stat-label">Client rating<span class="stat-flag">once Google reviews are live</span></div></div>
@@ -222,12 +372,13 @@ footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 
   </div>
 </section>
 
+<!-- ===== COMMUNITY / EN ESPANOL ===== -->
 <section class="community" id="community">
   <div class="container">
     <div class="cm-grid">
       <div class="reveal">
-        <div class="section-eyebrow">01 &mdash; En tu idioma, con corazon</div>
-        <h2 class="section-title">Comprando tu primera casa? <em>Aqui no estas sola.</em></h2>
+        <div class="section-eyebrow">01 &mdash; En tu idioma, con coraz&oacute;n</div>
+        <h2 class="section-title">&iquest;Comprando tu primera casa? <em>Aqu&iacute; no est&aacute;s sola.</em></h2>
         <p class="section-sub">For a Spanish-speaking family, the biggest purchase of your life should not happen in a language you are still translating in your head. With Stephy, <strong>every step - the tours, the paperwork, the lender, the closing table - happens in the language you actually think and feel in.</strong></p>
         <ul class="cm-list">
           <li><iconify-icon icon="mdi:comment-heart-outline"></iconify-icon><span><strong>Patient, judgment-free answers</strong> to the questions you were afraid were too basic.</span></li>
@@ -237,10 +388,10 @@ footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 
       </div>
       <div class="cm-card reveal">
         <div class="cm-flag"><iconify-icon icon="mdi:translate"></iconify-icon>Para ti</div>
-        <div class="cm-quote">"Tu casa. Tu ritmo. Tu idioma. Yo solo estoy aqui para hacerlo mas facil."</div>
+        <div class="cm-quote">"Tu casa. Tu ritmo. Tu idioma. Yo solo estoy aqu&iacute; para hacerlo m&aacute;s f&aacute;cil."</div>
         <div class="cm-quote-en">"Your home. Your pace. Your language. I am just here to make it easier."</div>
         <ul class="cm-list" style="margin-top:26px">
-          <li><iconify-icon icon="mdi:whatsapp"></iconify-icon><span>Escribeme por WhatsApp cuando quieras.</span></li>
+          <li><iconify-icon icon="mdi:whatsapp"></iconify-icon><span>Escr&iacute;beme por WhatsApp cuando quieras.</span></li>
           <li><iconify-icon icon="mdi:calendar-heart"></iconify-icon><span>Agenda una llamada de 15 minutos, sin compromiso.</span></li>
         </ul>
       </div>
@@ -248,9 +399,49 @@ footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 
   </div>
 </section>
 
+<!-- ===== HOW IT WORKS / PROCESS ===== -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-eyebrow">02 &mdash; How it works</div>
+    <h2 class="section-title">From "&iquest;y ahora qu&eacute;?" <em>to keys in your hand.</em></h2>
+    <p class="section-sub">Buying your first home can feel like a maze. Stephy turns it into four warm, simple steps - and walks every one of them beside you, in the language that feels like home.</p>
+    <div class="process-steps">
+      <div class="p-step reveal">
+        <div class="p-ico"><iconify-icon icon="mdi:hand-wave-outline"></iconify-icon></div>
+        <span class="p-num">Paso 01</span>
+        <h3>Say hola</h3>
+        <div class="p-es">Nos conocemos</div>
+        <p>A relaxed first chat, on WhatsApp or a 15-minute call. No pressure, no jargon - just Stephy getting to know you, your family, and the home you are dreaming about.</p>
+      </div>
+      <div class="p-step reveal">
+        <div class="p-ico"><iconify-icon icon="mdi:map-marker-path"></iconify-icon></div>
+        <span class="p-num">Paso 02</span>
+        <h3>Make a game plan</h3>
+        <div class="p-es">Tu plan, paso a paso</div>
+        <p>Together you map the budget, the lender, and the timeline - explained line by line so nothing is a surprise. You will always know exactly what comes next.</p>
+      </div>
+      <div class="p-step reveal">
+        <div class="p-ico"><iconify-icon icon="mdi:home-search-outline"></iconify-icon></div>
+        <span class="p-num">Paso 03</span>
+        <h3>Tour real homes</h3>
+        <div class="p-es">Vemos casas juntas</div>
+        <p>Stephy lines up homes that actually fit you and walks each one at your pace. Honest read on every property - the good, the "let's keep looking," all of it.</p>
+      </div>
+      <div class="p-step reveal">
+        <div class="p-ico"><iconify-icon icon="mdi:party-popper"></iconify-icon></div>
+        <span class="p-num">Paso 04</span>
+        <h3>Celebrate the keys</h3>
+        <div class="p-es">&iexcl;Bienvenida a casa!</div>
+        <p>Offer, closing table, and the moment those keys land in your hand. Stephy is there for the paperwork - and there for the photo when it is finally yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROGRAMS ===== -->
 <section class="programs" id="programs">
   <div class="container">
-    <div class="section-eyebrow">02 &mdash; How Stephy helps</div>
+    <div class="section-eyebrow">03 &mdash; How Stephy helps</div>
     <h2 class="section-title">Warm, clear, <em>and never pushy.</em></h2>
     <p class="section-sub">Whether you are buying your first place, selling to move up, or just curious what is possible, Stephy meets you where you are - with honesty and a lot of heart.</p>
     <div class="prog-grid">
@@ -276,6 +467,7 @@ footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 
   </div>
 </section>
 
+<!-- ===== STORY ===== -->
 <section class="story" id="story">
   <div class="container">
     <div class="story-grid">
@@ -284,7 +476,7 @@ footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 
         <div class="ph-flag">Placeholder - swap in Stephy's real headshot</div>
       </div>
       <div class="reveal">
-        <div class="section-eyebrow">03 &mdash; Meet Stephy</div>
+        <div class="section-eyebrow">04 &mdash; Meet Stephy</div>
         <h2 class="section-title">A <em>compassionate agent,</em> tailoring home experiences.</h2>
         <p>Stephy Salazar is an Austin real estate agent with <strong>eXp Realty</strong> who does this work for one reason: she loves watching a family walk into a home that is finally theirs. Her whole approach is built around care - listening first, moving at your pace, and treating your home search like it is her own.</p>
         <p>She is <strong>bilingual in English and Spanish</strong>, and she is building something rare in this business: a real community of women learning about home ownership together. When you work with Stephy, you do not just get an agent. <strong>You get someone in your corner, and a whole group at your back.</strong></p>
@@ -299,29 +491,129 @@ footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 
   </div>
 </section>
 
+<!-- ===== BOOK CLUB (SIGNATURE FEATURE) ===== -->
 <section class="bookclub" id="bookclub">
   <div class="container">
-    <div class="bc-inner reveal">
-      <iconify-icon class="big" icon="mdi:book-heart-outline"></iconify-icon>
-      <h2>Join the <em>Book Club Latinas</em></h2>
-      <p>A free community of Latina women learning about money, home ownership, and building something lasting - together. No sales pitch. Just support, real talk, and a group that has your back on the road to your first home.</p>
-      <a href="https://linktr.ee/homeswithstephy" class="cta-primary"><iconify-icon icon="mdi:whatsapp"></iconify-icon>Join the community</a>
+    <div class="bc-header reveal">
+      <div class="bc-badge"><iconify-icon icon="mdi:book-heart-outline"></iconify-icon>La comunidad &middot; The community</div>
+      <h2>The <em>Book Club Latinas</em> is her signature.</h2>
+      <p>Most agents have a listing feed. Stephy has a community. Book Club Latinas is a free WhatsApp circle of Latina women learning about money, home ownership, and building something lasting - together. No sales pitch. Just real talk, real support, and a group that has your back on the road to your first home.</p>
+    </div>
+    <div class="bc-body">
+      <div class="bc-feature-list reveal">
+        <div class="bc-feature">
+          <div class="bcf-ico"><iconify-icon icon="mdi:cash-multiple"></iconify-icon></div>
+          <div><h4>Money talk, sin verg&uuml;enza</h4><p>Credit, saving for a down payment, first-time-buyer programs - the conversations nobody had with us, held openly and kindly.</p></div>
+        </div>
+        <div class="bc-feature">
+          <div class="bcf-ico"><iconify-icon icon="mdi:account-multiple-plus-outline"></iconify-icon></div>
+          <div><h4>Women who get it</h4><p>A circle of Latinas at every stage - just starting, mid-search, or newly moved-in - cheering each other toward the keys.</p></div>
+        </div>
+        <div class="bc-feature">
+          <div class="bcf-ico"><iconify-icon icon="mdi:message-text-outline"></iconify-icon></div>
+          <div><h4>Answers on WhatsApp</h4><p>Ask the "too basic" question in the group and get a warm, honest answer - in English or in Spanish, whichever feels right.</p></div>
+        </div>
+      </div>
+      <div class="bc-card reveal">
+        <iconify-icon class="big" icon="mdi:book-heart-outline"></iconify-icon>
+        <div class="bc-quote">"Compramos casa juntas."</div>
+        <div class="bc-quote-en">"We buy homes together."</div>
+        <a href="https://linktr.ee/homeswithstephy" class="cta-primary"><iconify-icon icon="mdi:whatsapp"></iconify-icon>Join the community</a>
+        <div class="bc-note">Free to join &middot; no pressure to buy anything</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ===== LEAD MAGNET ===== -->
+<section class="guide" id="guide">
+  <div class="container">
+    <div class="guide-inner">
+      <div class="guide-text reveal">
+        <div class="section-eyebrow">05 &mdash; Free first-home guide</div>
+        <h2>Your first home, <em>step by step.</em> <strong>Free, bilingual.</strong></h2>
+        <p class="g-lead">The <strong>Primera Casa / First-Home Starter Guide</strong> is the friendly walkthrough Stephy wishes every first-time buyer had before they started. What to save, what a lender actually looks at, and every step from "&iquest;puedo comprar?" to keys - written plainly, en ingl&eacute;s y en espa&ntilde;ol.</p>
+        <ul class="guide-features">
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>What you really need to save (and what you don't)</li>
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>How credit and pre-approval work, explained simply</li>
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>First-time-buyer help that many families miss</li>
+          <li><iconify-icon icon="mdi:check-circle-outline"></iconify-icon>The full journey, paso a paso, in both languages</li>
+        </ul>
+        <form class="guide-form" onsubmit="event.preventDefault();alert('Demo only. The deployed version captures the name + email and sends the guide.');">
+          <input type="text" placeholder="Tu nombre / Your name" required>
+          <input type="email" placeholder="Tu correo / Your email" required>
+          <button type="submit" class="cta-primary"><iconify-icon icon="mdi:book-open-page-variant-outline"></iconify-icon>Send me the guide</button>
+        </form>
+        <p class="guide-disclaimer">Free PDF, both languages. Single-tap unsubscribe. Just the occasional warm note from Stephy - a first-home tip or a Book Club invite, never spam.</p>
+      </div>
+      <div class="guide-visual reveal">
+        <div class="guide-cover">
+          <div>
+            <div class="guide-cover-tag">Homes with Stephy &middot; Gu&iacute;a</div>
+            <p class="guide-cover-meta-top">Edici&oacute;n 2026 &middot; EN / ES</p>
+          </div>
+          <div>
+            <div class="guide-cover-title"><em>Primera Casa</em> Starter Guide</div>
+            <div class="guide-cover-sub">Your first home, step by step</div>
+          </div>
+          <div class="guide-cover-meta">A warm, bilingual first-time-buyer playbook</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div style="text-align:center;max-width:640px;margin:0 auto">
+      <div class="section-eyebrow" style="justify-content:center">06 &mdash; Preguntas frecuentes</div>
+      <h2 class="section-title" style="margin-left:auto;margin-right:auto;text-align:center">Warm answers to <em>the real questions.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">I have never bought a home before. Is that okay?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">More than okay - first-time buyers are exactly who Stephy loves working with. There is no such thing as a question that is too basic. She explains every step, moves at your pace, and celebrates every milestone with you, from pre-approval to the day you get the keys.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">&iquest;Puedo hacer todo el proceso en espa&ntilde;ol?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><span class="es-tag">Respuesta en espa&ntilde;ol</span>&iexcl;Claro que s&iacute;! Con Stephy, cada paso - las visitas, los documentos, el prestamista y la firma final - puede ser en espa&ntilde;ol. Ella te explica todo con calma, en el idioma en el que realmente piensas y sientes. Aqu&iacute; nunca est&aacute;s sola. <em>(Yes - the whole process can happen in Spanish, explained calmly at every step.)</em></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is the Book Club Latinas community?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">It is a <strong>free WhatsApp community</strong> of Latina women learning about money, credit, and home ownership together - founded and run by Stephy. There is no cost and no pressure to buy anything. It is simply a warm circle where you can ask the questions nobody explained, get honest answers, and cheer each other on toward that first home. You are welcome to join long before you are ready to buy.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How much does it cost to work with Stephy as a buyer?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">A first conversation is always free, and Stephy will walk you through exactly how agent compensation works for buyers in your situation before you commit to anything - clearly, and in your language. No surprises, no pressure. The goal of that first chat is simply to answer your questions and help you feel informed.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">I am not sure I can even afford a home yet. Should I still reach out?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes - this is one of Stephy's favorite conversations. Sometimes you are closer than you think, and sometimes the honest answer is "let's build a plan for next year." Either way, you leave with a real, no-pressure read on your budget and your options. Many people who join the Book Club Latinas start exactly here.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do we get started?<span class="faq-plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">The easiest way is to <strong>say hola</strong> - message Stephy on WhatsApp or book a free 15-minute call through her link. Tell her a little about where you are, and she takes it from there, at your pace. En ingl&eacute;s o en espa&ntilde;ol, whichever feels like home.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
 <section class="final" id="contact">
   <div class="final-inner">
-    <div class="section-eyebrow" style="justify-content:center">04 &mdash; Say hola / Salúdame</div>
+    <div class="section-eyebrow" style="justify-content:center">07 &mdash; Say hola / Sal&uacute;dame</div>
     <h2>Let's talk about <em>your first home.</em></h2>
     <p>No pressure, no jargon. Tell Stephy where you are and get warm, honest guidance on what makes sense next. En ingl&eacute;s o en espa&ntilde;ol - whichever feels like home.</p>
     <div class="final-cta-row">
       <a href="https://linktr.ee/homeswithstephy" class="cta-primary"><iconify-icon icon="mdi:calendar-heart"></iconify-icon>Book a free chat</a>
       <a href="https://www.instagram.com/homeswithstephy/" class="cta-ghost"><iconify-icon icon="mdi:instagram"></iconify-icon>Follow on Instagram</a>
     </div>
+    <div class="divider-motif" style="margin-top:44px"><span class="line"></span><iconify-icon icon="mdi:home-heart"></iconify-icon><span class="line rev"></span></div>
   </div>
 </section>
 
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
@@ -333,7 +625,7 @@ footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 
       <ul>
         <li><a href="#programs">First-time buyers</a></li>
         <li><a href="#programs">Selling with care</a></li>
-        <li><a href="#programs">Just exploring</a></li>
+        <li><a href="#process">How it works</a></li>
         <li><a href="#community">En espa&ntilde;ol</a></li>
       </ul>
     </div>
@@ -341,6 +633,8 @@ footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 
       <h4>Community</h4>
       <ul>
         <li><a href="#bookclub">Book Club Latinas</a></li>
+        <li><a href="#guide">Free first-home guide</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#story">About Stephy</a></li>
       </ul>
     </div>
@@ -364,8 +658,59 @@ footer{background:var(--plum);border-top:1px solid var(--border);padding:70px 0 
 </footer>
 
 <script>
+// ===== reveal on scroll =====
 const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// ===== sticky nav shrink on scroll =====
+const nav=document.getElementById('nav');
+const onScroll=()=>{if(window.scrollY>40){nav.classList.add('shrink')}else{nav.classList.remove('shrink')}};
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+// ===== mobile hamburger menu =====
+const menu=document.getElementById('mobileMenu');
+const scrim=document.getElementById('mobileScrim');
+const toggle=document.getElementById('navToggle');
+const openMenu=()=>{menu.classList.add('open');scrim.classList.add('open');toggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'};
+const closeMenu=()=>{menu.classList.remove('open');scrim.classList.remove('open');toggle.setAttribute('aria-expanded','false');document.body.style.overflow=''};
+toggle.addEventListener('click',openMenu);
+document.getElementById('mClose').addEventListener('click',closeMenu);
+scrim.addEventListener('click',closeMenu);
+document.querySelectorAll('[data-mnav]').forEach(a=>a.addEventListener('click',closeMenu));
+
+// ===== count-up animation on numeric stats =====
+const countEls=document.querySelectorAll('.stat-num[data-count]');
+const countIO=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target;const target=parseInt(el.dataset.count,10);const suffix=el.dataset.suffix||'';
+    const dur=1400;const start=performance.now();
+    const small=suffix?'<span class="small">'+suffix+'</span>':'';
+    const tick=(now)=>{
+      const p=Math.min((now-start)/dur,1);
+      const eased=1-Math.pow(1-p,3);
+      el.innerHTML=Math.round(eased*target)+small;
+      if(p<1)requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    countIO.unobserve(el);
+  });
+},{threshold:0.5});
+countEls.forEach(el=>countIO.observe(el));
+
+// ===== FAQ accordion =====
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q=item.querySelector('.faq-q');
+  const a=item.querySelector('.faq-a');
+  q.addEventListener('click',()=>{
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(other=>{
+      if(other!==item){other.classList.remove('open');other.querySelector('.faq-a').style.maxHeight=null}
+    });
+    if(isOpen){item.classList.remove('open');a.style.maxHeight=null}
+    else{item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+  });
+});
 </script>
 </body>
 </html>
